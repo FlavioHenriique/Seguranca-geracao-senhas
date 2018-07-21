@@ -1,15 +1,22 @@
-arquivo = open("arquivo.txt", "r")
+from WordList import WordList
 
+wordlist = WordList()
+
+#Leitura do arquivo
+arquivo = open("arquivo.txt", "r")
 texto = arquivo.read()
 
+#Remoção de acentos
+texto = wordlist.strip_accents(texto)
+
+#Separação por espaços
 palavras = texto.split()
-array = []
 
-for x in range(len(palavras)):
-    palavra = "".join(e for e in palavras[x] if e.isalpha())
-    if palavra != "":
-        array.append(palavra)
+array = wordlist.verificaItems(palavras)
+array = wordlist.removeMaiusculo(array)
 
-for k in range(len(array)):
-    if len(array[k])==9 or len(array[k]) == 10:
-            print(array[k])
+# Criar wordlist
+array = wordlist.word(array,9)
+
+wordlist.printarArray(array)
+
