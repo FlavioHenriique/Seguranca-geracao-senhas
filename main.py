@@ -16,7 +16,9 @@ array = wordlist.verificaItems(palavras)
 array = wordlist.removeMaiusculo(array)
 
 # Criar wordlist
-array = wordlist.word(array,9)
+array = wordlist.wordlist(array,8)
 
-wordlist.printarArray(array)
+#wordlist.printarArray(array)
+
+wordlist.preencherArquivo(array)
 

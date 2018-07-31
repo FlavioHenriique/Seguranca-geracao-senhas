@@ -29,7 +29,7 @@ class WordList:
             for i in range (len(array)):
                 palavra = array[k] + array[i]
                 if len(palavra) >= quant:
-                    palavras.append(palavra[0:quant-1])
+                    palavras.append(palavra[0:quant])
 
         return palavras
 
@@ -39,3 +39,13 @@ class WordList:
             print(array[k])
 
         print("Quantidade de palavras: "+ str(len(array)))
+
+    # Salvando as palavras no arquivo
+    def preencherArquivo(self,array):
+
+        arquivo = open("wordlist.txt","w")
+
+        for k in range (len(array)):
+            arquivo.write(array[k]+"\n")
+
+        arquivo.close()
